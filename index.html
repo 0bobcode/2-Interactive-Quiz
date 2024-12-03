@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Quiz</title>
+    <style rel="stylesheet" href="style.css"></style>
+</head>
+<body>
+    <nav>Welcome To Quiz</nav>
+
+    <main>
+        <section class="quiz-container">
+            <h1>ready to play Quiz?</h1>
+            <div class="question-container">
+                <p id="question"></p>
+            </div>
+            <div class="answer-container">
+                <button class="answer-btn" onclick="checkAnswser(1)"></button>
+                <button class="answer-btn" onclick="checkAnswser(2)"></button>
+                <button class="answer-btn" onclick="checkAnswser(3)"></button>
+                <button class="answer-btn" onclick="checkAnswser(4)"></button>
+            </div>
+
+            <button id="next-btn" onclick="nextQuestion()">next question</button>
+        </section>
+    </main>
+
+    <footer>all rights reserved by bobchopra</footer>
+
+    <script src="scrip.js">
+
+    </script>
+</body>
+</html>
