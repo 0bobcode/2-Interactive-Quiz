@@ -1,0 +1,94 @@
+*{
+    padding:0px;
+    margin:0px;
+    font-family:"Poppins",sans-serif;
+    text-align: center;
+}
+body{
+    background-color: #dedeef;
+}
+
+
+nav::after{
+ content: "🔥";
+
+}
+
+nav{
+    background-color: blueviolet;
+    color:whitesmoke;
+    font-size: 1.4rem;
+    padding:9px 0px;
+    position: sticky;
+    top:0px;
+}
+
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height:100vh;
+}
+
+.quiz-container{
+    border-radius: 22px;
+        background: linear-gradient(145deg, #c8c8d7, #eeeeff);
+        box-shadow: 24px 24px 48px #ccccdc,
+            -24px -24px 48px #f0f0ff;
+            padding: 50px;
+}
+
+#quiz-heading::first-letter{
+    text-transform: uppercase;
+    
+}
+
+#quiz-heading{
+    color:#444343;
+}
+
+
+#question{
+    color: #444343;
+}
+
+.answer-btn{
+ display: block;
+ width:100%;
+ margin: 10px 0px;
+ background-color: blueviolet;
+ color: white;
+ border: none;
+ padding: 5px;
+ border-radius: 5px;
+cursor: pointer;
+}
+
+
+
+#next-btn{
+    background-color: black;
+    color: #ffffff;
+    border-radius: 10px;
+    border:none;
+    padding: 10px 20px;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+#next-btn::first-letter{
+    text-transform: uppercase;
+}
+
+#next-btn::after{
+    content: "❓";
+}
+
+footer{
+background-color: black;
+color: aliceblue;
+padding:10px;
+position: sticky;
+bottom:0px;
+border-radius: 5px;
+}
