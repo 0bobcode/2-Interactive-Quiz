@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interactive Quiz</title>
-    <!-- <link rel="stylesheet" href="style.css"> -->
-    <!-- <style>
+    <link rel="stylesheet" href="style.css">
+    <style>
         @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Bebas+Neue&family=Geist+Mono:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-    </style> -->
+    </style>
 
 </head>
 <body>
@@ -34,16 +34,21 @@
     <footer>All rights reserved ©️ by bobchopra</footer>
 
     <script>
-        
-
-
+        let question = document.getElementById("question");
+        let optBtns = document.querySelectorAll(".answer-btn");
+        let feedback = document.getElementById("feedback");
+        let nextBtn  = document.getElementById("nextBtn");
+        let answerContainer = document.getElementById("answer-container");
             const questions = [
-                // {
-                //     question: "Q1.what is full form of https",
-                //     options: ["hyper text transfer protocall secure", "hyper text translation protocal secured", "highest text translator perfected secure", "hyper text transfer language unsecure"],
-                //     correctAnswer: 1
+                 {
+                     question: "Q1.what is full form of https",
+                     options: ["hyper text transfer protocall secure",
+                      "hyper text translation protocal secured",
+                       "highest text translator perfected secure",
+                        "hyper text transfer language unsecure"],
+                     correctAnswer: 1
 
-                // },
+                 },
                 {
                     question: "Q2. define array",
                     options: ["it is an varible", "programming language", "a data structure that stores elements of the same type", "a website that allows you to get fonts"],
@@ -56,10 +61,10 @@
 
             function loadQuestion() {
                 let currentQuestion = questions[currentQuestionIndex]
-                document.getElementById("question").textContent = questions.question
+                document.getElementById("question").textContent = currentQuestion.question
                 const optBtns = document.querySelectorAll(".answer-btn")
                 optBtns.forEach((optBtn, index) => {
-                    optBtn.textContent = questions.options[index]
+                    optBtn.textContent = currentQuestion.options[index]
                     optBtn.disabled = false
                 });
 
@@ -71,22 +76,32 @@
                 const feedback = document.getElementById("feedback")
                 let buttons  =  document.querySelectorAll(".answer-btn")
                 if(selected===correct){
-                    feedback.textContent = "correct!"
-                    feedback.style.color = "green"
+                    feedback.textContent = "correct!";
+                    feedback.style.color = "green";
                 }
                 else{
-                    feedback.textContent = "WRONG!!!"
-                    feedback.style.color ="red"
+                    feedback.textContent = "WRONG!!!";
+                    feedback.style.color ="red";
                 }
                 buttons.forEach(button =>{
                     button.disabled = true
                 })
             }
 
-            loadQuestion()
-
-
             
+
+            function nextQuestion(){
+                currentQuestionIndex++
+                if(currentQuestionIndex<questions.length){
+                    loadQuestion()
+                }
+                else{
+                    document.getElementById("question").textContent = "🏁Quiz Complete‼️‼️‼️‼️";
+                    document.getElementById("answer-container").style.display = "none";
+                    document.getElementById("next-btn").style.display = "none";
+                }
+            }
+            loadQuestion()
     </script>
 </body>
 </html>
