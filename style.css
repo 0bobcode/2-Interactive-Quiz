@@ -25,13 +25,16 @@ nav{
 
 main{
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    
     height:100vh;
 }
 
 .quiz-container{
     border-radius: 22px;
+
         background: linear-gradient(145deg, #c8c8d7, #eeeeff);
         box-shadow: 24px 24px 48px #ccccdc,
             -24px -24px 48px #f0f0ff;
@@ -45,6 +48,7 @@ main{
 
 #quiz-heading{
     color:#444343;
+    margin-bottom: 40px;
 }
 
 

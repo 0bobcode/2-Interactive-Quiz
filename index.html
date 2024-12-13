@@ -14,8 +14,9 @@
     <nav>Welcome To Quiz</nav>
 
     <main>
+        <h1 id="quiz-heading">ready to play Quiz🧠</h1>
         <section class="quiz-container">
-            <h1 id="quiz-heading">ready to play Quiz🧠</h1>
+            
             <div class="question-container">
                 <p id="question"></p>
             </div>
@@ -27,81 +28,13 @@
             </div>
             <div class="feedback" id="feedback"></div>
 
-            <button id="next-btn" onclick="nextQuestion()">next question</button>
+            <button id="next-btn" onclick="nextQuestion()" style="display: none;">next question</button>
         </section>
+        
     </main>
 
     <footer>All rights reserved ©️ by bobchopra</footer>
 
-    <script>
-        let question = document.getElementById("question");
-        let optBtns = document.querySelectorAll(".answer-btn");
-        let feedback = document.getElementById("feedback");
-        let nextBtn  = document.getElementById("nextBtn");
-        let answerContainer = document.getElementById("answer-container");
-            const questions = [
-                 {
-                     question: "Q1.what is full form of https",
-                     options: ["hyper text transfer protocall secure",
-                      "hyper text translation protocal secured",
-                       "highest text translator perfected secure",
-                        "hyper text transfer language unsecure"],
-                     correctAnswer: 1
-
-                 },
-                {
-                    question: "Q2. define array",
-                    options: ["it is an varible", "programming language", "a data structure that stores elements of the same type", "a website that allows you to get fonts"],
-                    correctAnswer: 3
-                }
-            ];
-            console.log(questions[0]);
-
-            let currentQuestionIndex = 0
-
-            function loadQuestion() {
-                let currentQuestion = questions[currentQuestionIndex]
-                document.getElementById("question").textContent = currentQuestion.question
-                const optBtns = document.querySelectorAll(".answer-btn")
-                optBtns.forEach((optBtn, index) => {
-                    optBtn.textContent = currentQuestion.options[index]
-                    optBtn.disabled = false
-                });
-
-                document.getElementById("feedback").textContent = "";
-                document.getElementById("next-btn").style.display = "none";
-            }
-            function checkAnswser(selected){
-                let correct = questions[currentQuestionIndex].correctAnswer
-                const feedback = document.getElementById("feedback")
-                let buttons  =  document.querySelectorAll(".answer-btn")
-                if(selected===correct){
-                    feedback.textContent = "correct!";
-                    feedback.style.color = "green";
-                }
-                else{
-                    feedback.textContent = "WRONG!!!";
-                    feedback.style.color ="red";
-                }
-                buttons.forEach(button =>{
-                    button.disabled = true
-                })
-            }
-
-            
-
-            function nextQuestion(){
-                currentQuestionIndex++
-                if(currentQuestionIndex<questions.length){
-                    loadQuestion()
-                }
-                else{
-                    document.getElementById("question").textContent = "🏁Quiz Complete‼️‼️‼️‼️";
-                    document.getElementById("answer-container").style.display = "none";
-                    document.getElementById("next-btn").style.display = "none";
-                }
-            }
-            loadQuestion()
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
