@@ -93,20 +93,18 @@ let currentQuestionIndex = 0
 
 function loadQuestion() {
     let currentQuestion = questions[currentQuestionIndex]
-    document.getElementById("question").textContent = currentQuestion.question
-    const optBtns = document.querySelectorAll(".answer-btn")
+    question.textContent = currentQuestion.question
     optBtns.forEach((optBtn, index) => {
         optBtn.textContent = currentQuestion.options[index]
         optBtn.disabled = false
     });
 
-    document.getElementById("feedback").textContent = "";
-    document.getElementById("next-btn").style.display = "none";
+    feedback.textContent = "";
+    nextBtn.style.display = "none";
 }
 function checkAnswser(selected) {
     let correct = questions[currentQuestionIndex].correctAnswer
-    const feedback = document.getElementById("feedback")
-    let buttons = document.querySelectorAll(".answer-btn")
+    
     if (selected === correct) {
         feedback.textContent = "correct!";
         feedback.style.color = "green";
@@ -115,7 +113,7 @@ function checkAnswser(selected) {
         feedback.textContent = "WRONG!!!";
         feedback.style.color = "red";
     }
-    buttons.forEach(button => {
+    optBtns.forEach(button => {
         button.disabled = true
     })
     document.getElementById("next-btn").style.display = "inline-block";
@@ -129,8 +127,8 @@ function nextQuestion() {
         loadQuestion()
     }
     else {
-        document.getElementById("question").textContent = "🏁Quiz Complete‼️‼️‼️‼️";
-        document.getElementById("answer-container").style.display = "none";
+        question.textContent = "🏁Quiz Completed‼️‼️‼️‼️";
+        answerContainer.style.display = "none";
         document.getElementById("next-btn").style.display = "inline-block";
     }
 }
