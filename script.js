@@ -4,6 +4,7 @@ let feedback = document.getElementById("feedback");
 let nextBtn = document.getElementById("nextBtn");
 let answerContainer = document.getElementById("answer-container");
 
+let answerSelected = false
 const questions = [
     {
         question: "Q1. What is full form of HTTPS?",
@@ -97,31 +98,43 @@ function loadQuestion() {
     optBtns.forEach((optBtn, index) => {
         optBtn.textContent = currentQuestion.options[index]
         optBtn.disabled = false
+
     });
 
     feedback.textContent = "";
     nextBtn.style.display = "none";
+     answerSelected = false
 }
 function checkAnswser(selected) {
     let correct = questions[currentQuestionIndex].correctAnswer
     
     if (selected === correct) {
-        feedback.textContent = "correct!";
+        feedback.textContent = "✅Correct 🙂";
         feedback.style.color = "green";
     }
     else {
-        feedback.textContent = "WRONG!!!";
+        feedback.textContent = "❌Wrong 😔";
         feedback.style.color = "red";
     }
     optBtns.forEach(button => {
         button.disabled = true
     })
+    answerSelected = true;
     document.getElementById("next-btn").style.display = "inline-block";
+
+    
 }
 
 
 
 function nextQuestion() {
+    if(!answerSelected){
+        feedback.textContent ="please select a answer⚠️⚠️⚠️";
+        feedback.style.color = "darkred"
+
+        return;
+    }
+    answerSelected = false
     currentQuestionIndex++
     if (currentQuestionIndex < questions.length) {
         loadQuestion()
@@ -131,5 +144,6 @@ function nextQuestion() {
         answerContainer.style.display = "none";
         document.getElementById("next-btn").style.display = "inline-block";
     }
+
 }
 loadQuestion()
